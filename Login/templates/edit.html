@@ -1,0 +1,102 @@
+
+{% include 'header.html' %}
+
+<br>
+
+<!-- Se reciben todos los mensages por parte del flash
+    despues se desglozan los mensajes y se agrupan de uno en uno
+    en los apartados que se hagan falta realizar -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}  
+        <div class="alert alert-danger" role="alert">
+    
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+    
+        </div>
+    {% endif %}
+    {% endwith %}
+
+{% for users in users %}
+<br>
+<form method="POST" action="/update" enctype="multipart/form-data">
+
+
+    <div class="Formulario card">
+        <div class="card-header">
+            Editar usuario.
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Datos del usuario: </h5>
+            
+            <p class="card-text">
+
+                <input type="hidden" value="{{ users[0] }}" name="txt_id" id="txt_id">
+                <br>
+
+                <div class="contenedor-errores" id="DivError">
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="txtUsername">Username: </label>
+                    <input id="txtUsername" value="{{ users[1] }}"
+                    class="form-control" type="text" name="txtUsername">
+                </div>
+                <div class="contenedor-errores" id="DivErrorUsuario">
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="txtPass">Password: </label>
+                    <input id="txtPass" value="{{ users[2] }}"
+                    class="form-control" type="text" name="txtPass">
+                </div>
+                <div class="contenedor-errores" id="DivErrorPass">
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="txtCorreo">Correo: </label>
+                    <input id="txtCorreo" value="{{ users[3] }}"
+                    class="form-control" type="text" name="txtCorreo">
+                </div>
+                <div class="contenedor-errores" id="DivErrorCorreo">
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="txtFoto">Foto: </label>
+                    <br>
+                    <img class="img-thumbnail" 
+                    width="200"
+                    src="{{ url_for('uploads', nombre_foto = users[4]) }}" 
+                    alt="Image">
+                    <br>
+                    <br>
+                    <input id="txtFoto" 
+                    class="form-control" type="file" name="txtFoto">
+                </div>
+                <div class="contenedor-errores" id="DivErrorIMG">
+                </div>
+                <br>
+                
+                <div class="form-group">
+                    <input type="submit" onclick="return ValidaEdicion();" class="btn btn-success" value="Guardar">
+                    <a href=" {{ url_for('index') }} " class="btn btn-primary">
+                        Regresar
+                    </a>
+                </div>
+                <br>
+
+            </p>
+        </div>
+    </div>
+    
+</form>
+<br>
+
+{% endfor %}
+
+{% include 'footer.html' %}

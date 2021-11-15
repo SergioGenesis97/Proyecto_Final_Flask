@@ -1,0 +1,72 @@
+
+{% include 'header.html' %}
+
+<br>
+<!-- Se reciben todos los mensages por parte del flash
+    despues se desglozan los mensajes y se agrupan de uno en uno
+    en los apartados que se hagan falta realizar -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}  
+    <div class="alert alert-danger" role="alert">
+
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+
+    </div>
+{% endif %}
+{% endwith %}
+
+
+<br>
+<form class="Create-Table" method="POST" action="/store" enctype="multipart/form-data">
+
+    <div class="Formulario card">
+        <div class="card-header">
+            Añadir un nuevo usuario.
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Datos del usuario:</h5>
+            <p class="card-text">
+                <br>
+                <div class="form-group">
+                    <label for="txtUsername">Username: </label>
+                    <input id="txtUsername" class="form-control" type="text" name="txtUsername">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="txtPass">Password: </label>
+                    <input id="txtPass" class="form-control" type="text" name="txtPass">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="txtCorreo">Correo: </label>
+                    <input id="txtCorreo" class="form-control" type="text" name="txtCorreo">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="txtFoto">Foto: </label>
+                    <input id="txtFoto" class="form-control" type="file" name="txtFoto">
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
+                    <input type="submit" 
+                    class="btn btn-success"
+                    value="+Add">
+
+                    <a href=" {{ url_for('index') }} "
+                       class="btn btn-primary">Regresar
+                    </a>
+                </div>
+                <br>
+
+            </p>
+        </div>
+    </div>
+
+    
+</form>
+<br>
+<br>
+{% include 'footer.html' %}

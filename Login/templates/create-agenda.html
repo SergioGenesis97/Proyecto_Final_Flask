@@ -1,0 +1,95 @@
+{% include 'header.html' %}
+<br>
+
+<!--
+    Se reciben todos los mensages por parte del flash
+    despues se desglozan los mensajes y se agrupan de uno en uno
+    en los apartados que se hagan falta realizar
+-->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}  
+        <div class="alert alert-danger" role="alert">
+    
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+    
+        </div>
+    {% endif %}
+    {% endwith %}
+
+<h4> +Add Event </h2>
+
+    <form class="Create-Table" method="POST" action="/storage-agenda" enctype="multipart/form-data">
+
+        <div class="Formulario card">
+            <div class="card-header">
+                Añadir un nuevo Evento de agenda.
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Datos del Evento:</h5>
+                <p class="card-text">
+                    <br>
+                    <div class="form-group">
+                        <label for="txtTitulo">Titulo: </label>
+                        <input id="txtTitulo" class="form-control" type="text"
+                                name="txtTitulo">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="txtCorreo">URL / Correo: </label>
+                        <input id="txtCorreo" class="form-control" type="text"
+                                name="txtCorreo">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="select_event">Tipo de Evento</label>
+                        <select id="select_event" class="custom-select" name="select_event">
+                            <option value="0">Selecciona un evento</option>
+                            <option value="event-sucess">Event-Success</option>
+                            <option value="event-important">Event-Important</option>
+                            <option value="event-info">Event-Info</option>
+                            <option value="event-error">Event-Error</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="txtFechaIni">Fecha Inicio: </label>
+                        <input id="txtFechaIni" class="form-control" type="date" 
+                               name="txtFechaIni">
+                        <br>
+                        <input id="txtFechaIniTime" class="form-control" type="time" 
+                        name="txtFechaIniTime">
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <label for="txtFechaFin">Fecha Fin: </label>
+                        <input id="txtFechaFin" class="form-control" type="date" 
+                               name="txtFechaFin">
+                        <br>
+                        <input id="txtFechaFinTime" class="form-control" type="time" 
+                        name="txtFechaFinTime">
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-group">
+                        <input type="submit" 
+                        class="btn btn-success"
+                        value="+Add">
+    
+                        <a href=" {{ url_for('agenda') }} "
+                           class="btn btn-primary">Regresar
+                        </a>
+                    </div>
+                    <br>
+    
+                </p>
+            </div>
+        </div>
+    
+        
+    </form>
+<br>
+{% include 'footer.html' %}

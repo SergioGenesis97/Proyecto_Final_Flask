@@ -1,0 +1,102 @@
+body{
+    background-image: url("/static/img/rog.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+html{
+    min-height: 100%;
+    position: relative;
+}
+
+.Footer{
+    padding-top: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: -52px;
+}
+
+.Formulario{
+    opacity: .75;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lime;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: red 0 0 15px 1px;
+}
+
+.card-header{
+    font-size: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #33D7FF;
+    text-align: center;
+}
+
+.Show-Table{
+    color: cornsilk;
+}
+
+.btn{
+    color: black;
+}
+
+.btn:hover{
+    color: cornsilk;
+}
+
+.navbar{
+    background-color: black;
+}
+
+#NavTitulo{
+    color: chartreuse;
+    font-size: 26px;
+    padding-right: 20%;
+}
+
+.nav-link{
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+.nav-link:hover{
+    color: darkgoldenrod;
+}
+
+#Footer-Title{
+    opacity: .5;
+    color: darkgray;
+    padding-left: 25%;
+}
+
+.Cuerpo-Tabla{
+    color: lime;
+}
+
+
+#calendar{
+    background-color: rgba(8, 0, 119, 0.2);
+    color: whitesmoke;
+}
+
+.row{
+    color: whitesmoke;
+    font-family: Verdana;
+    font-size: 14px;
+}
+
+h4{
+    color: darkorange;
+}
+
+h3{
+    color: lime;
+}
+
+
+.mensaje-error{
+    padding: 10px 0;
+    border-radius: 2px;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/estilos.css">
+    <script src="/static/javascript/validations.js"></script>
+    <title>Inicio</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" id="NavTitulo">Administrador de páginas</a>
+        <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="my-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('index') }}">Mostrar Usuarios <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=" {{ url_for('agenda') }} " tabindex="-1" aria-disabled="true">Agenda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=" {{ url_for('create') }} " tabindex="-2" aria-disabled="true">Usuario+</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=" {{ url_for('desarrolladores') }} " tabindex="-3" aria-disabled="true">Desarrolladores</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <br>
+
+
+    <div class="container">
